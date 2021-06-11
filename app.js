@@ -1,11 +1,13 @@
-//76abfd4b-893b-48e4-afbb-c29a85c966a9
-$.ajax({
-  type: "GET",
-  url:
-    "https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/umpire?key=76abfd4b-893b-48e4-afbb-c29a85c966a9",
-  data: "data",
-  dataType: "dataType",
-  success: function (data) {
-    console.log(data);
-  },
-});
+const fetch = require("node-fetch");
+const prompt = require("prompt-sync")({ sigint: true });
+const APIkey = "501889bf-4d9e-4ed7-beaa-b4b24cbf693c";
+
+fetch(
+  "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/process?key=APIkey"
+)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    let newWord = data[0].meta.syns[0][0];
+  });
