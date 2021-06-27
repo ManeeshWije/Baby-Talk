@@ -1,21 +1,32 @@
 const fetch = require("node-fetch");
 const prompt = require("prompt-sync")({ sigint: true });
-// const APIkey = "501889bf-4d9e-4ed7-beaa-b4b24cbf693c";
 
 let text = prompt("Enter piece of text: ");
 let result = text.split(" ");
 
-for (let i = 0; i < result.length; i++) {
-  let word = result[i];
-  if (word.length > 7) {
-    fetch(
-      `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/parameter?key=501889bf-4d9e-4ed7-beaa-b4b24cbf693c`
-    )
-      .then((response) => {
-        response.json();
+function changeWord() {
+  for (let i = 0; i < result.length; i++) {
+    let word = result[i];
+    if (word.length > 7) {
+      fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}/synonyms`, {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key":
+            "442d139cacmsh193c5fcc792d3b5p1007a0jsn6715d85ce4d3",
+          "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+        },
       })
-      .then((data) => {
-        console.log(data);
-      });
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          word = data.synonyms[0];
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   }
 }
+
+for (let i = 0; i < text.length; i++) {}
