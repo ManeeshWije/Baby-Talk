@@ -1,10 +1,11 @@
 {
-  "name": "node-fetch",
+  "name": "baby-talk",
   "version": "1.0.0",
   "description": "Simple app that takes in any piece of text and converts it into a new set of text with smaller/easier words in order to understand it better",
+  "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,7 @@
   },
   "homepage": "https://github.com/ManeeshWije/Baby-Talk#readme",
   "dependencies": {
-    "axios": "^0.21.1",
-    "jquery": "^3.6.0",
+    "node-fetch": "^3.0.0",
     "prompt-sync": "^4.2.0"
   }
 }

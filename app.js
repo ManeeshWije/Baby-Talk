@@ -1,3 +1,5 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const fetch = require("node-fetch");
 const prompt = require("prompt-sync")({ sigint: true });
 
